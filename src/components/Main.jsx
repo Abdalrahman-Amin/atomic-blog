@@ -1,25 +1,28 @@
 import FormAddPost from "./FormAddPost";
+import { usePosts } from "../context/PostContext";
 
-function Main({ posts, onAddPost }) {
+function Main() {
    return (
       <main>
-         <FormAddPost onAddPost={onAddPost} />
-         <Posts posts={posts} />
+         <FormAddPost />
+         <Posts />
       </main>
    );
 }
 
-function Posts({ posts }) {
+function Posts() {
    return (
       <section>
-         <List posts={posts} />
+         <List />
       </section>
    );
 }
 
 
 
-function List({ posts }) {
+function List() {
+   const { posts } = usePosts();
+
    return (
       <ul>
          {posts.map((post, i) => (
